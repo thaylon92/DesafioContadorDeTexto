@@ -1,14 +1,13 @@
 import UIKit
 
+// Desafio Algoritimo contador de texto
 
 func contaLetras(texto: String) -> Int {
-   
+    
     let totalDeCaractereEspaco = texto.count
     let totalDeEspaco = texto.reduce(0) { $1.isWhitespace && !$1.isNewline ? $0 + 1 : $0 }
     let totalDeCaracter = totalDeCaractereEspaco - totalDeEspaco
     return totalDeCaracter
-    
-    
 }
 
 func contaVogalEConsoante(texto:String) -> (Int, Int) {
