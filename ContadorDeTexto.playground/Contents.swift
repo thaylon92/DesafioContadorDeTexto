@@ -1,7 +1,7 @@
 import UIKit
 
 // Desafio Algoritimo contador de texto
-
+// 
 func contaLetras(texto: String) -> Int {
     
     let totalDeCaractereEspaco = texto.count
