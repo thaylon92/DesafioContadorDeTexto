@@ -1,16 +1,19 @@
 import UIKit
 
 // Desafio Algoritimo contador de texto
-// 
-func contaLetras(texto: String) -> Int {
+
+func conntadorDeTexto(texto: String) -> ( Int,  Int, Int, Int)  {
     
     let totalDeCaractereEspaco = texto.count
     let totalDeEspaco = texto.reduce(0) { $1.isWhitespace && !$1.isNewline ? $0 + 1 : $0 }
     let totalDeCaracter = totalDeCaractereEspaco - totalDeEspaco
-    return totalDeCaracter
-}
+    
+    let chararacterSet = CharacterSet.whitespacesAndNewlines.union(.punctuationCharacters)
+    let components = texto.components(separatedBy: chararacterSet)
+    let words = components.filter { !$0.isEmpty }
+    let wordsTotal = words.count
+    
 
-func contaVogalEConsoante(texto:String) -> (Int, Int) {
     
     let vogal = CharacterSet(charactersIn: "aeiou")
     let consoante = CharacterSet.letters.subtracting(vogal)
@@ -23,21 +26,19 @@ func contaVogalEConsoante(texto:String) -> (Int, Int) {
         let set = CharacterSet(charactersIn: String(Character))
         if set.isSubset(of: vogal) { numeroDeVogal += 1 }
         if set.isSubset(of: consoante) { numeroDeConsoante += 1 }
-        
     }
-    return (numeroDeVogal, numeroDeConsoante)
+        
+    
+    return ( totalDeCaracter,numeroDeVogal, numeroDeConsoante, wordsTotal)
     
 }
 
-func contaPalavras(tesxto: String) -> Int {
+conntadorDeTexto(texto: "Desafio manipulação string")
     
-    let chararacterSet = CharacterSet.whitespacesAndNewlines.union(.punctuationCharacters)
-    let components = tesxto.components(separatedBy: chararacterSet)
-    let words = components.filter { !$0.isEmpty }
-    return words.count
+
     
     
-}
+
 
 
 
